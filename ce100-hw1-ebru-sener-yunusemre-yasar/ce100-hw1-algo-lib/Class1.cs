@@ -216,32 +216,32 @@ namespace ce100_hw1_algo_lib
         *	  
         **/
 
-        public static int BinarySearchRecursive(int[] inputArray, int key, int min, int max)
+        public static int RecursiveBinarySearch(int[] array, int target, int low, int high)
         {
-            int mid = key + (min - key) / 2;
-
-            // find the mid-value in the search space and
-            // compares it with the target
-
-            // Base condition (target value is found)
-            if (max == inputArray[mid])
+            if (low > high)
             {
+                // Target not found
+                return -1;
+            }
+
+            int mid = (low + high) / 2;
+
+            if (array[mid] == target)
+            {
+                // Target found at index mid
                 return mid;
             }
-
-            // discard all elements in the right search space,
-            // including the middle element
-            else if (max < inputArray[mid])
+            else if (array[mid] > target)
             {
-                return BinarySearchRecursive(inputArray, key, mid - 1, max);
+                // Target may be in the left half of the array
+                return RecursiveBinarySearch(array, target, low, mid - 1);
             }
-
-            // discard all elements in the left search space,
-            // including the middle element
             else
             {
-                return BinarySearchRecursive(inputArray, mid + 1, min, max);
+                // Target may be in the right half of the array
+                return RecursiveBinarySearch(array, target, mid + 1, high);
             }
         }
+
     }
 }
