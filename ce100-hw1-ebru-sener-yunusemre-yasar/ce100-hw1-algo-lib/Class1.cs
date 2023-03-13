@@ -90,6 +90,45 @@ namespace ce100_hw1_algo_lib
                 array[l] = temp[l];
             }
         }
+        public static void QuickSort(int[] arr, int left, int right)
+        {
+            if (left < right)
+            {
+                int pIndex = RandomizedPartition(arr, left, right);
+                QuickSort(arr, left, pIndex - 1);
+                QuickSort(arr, pIndex + 1, right);
+            }
+        }
+
+        private static int RandomizedPartition(int[] arr, int left, int right)
+        {
+            Random rand = new Random();
+            int randomIndex = rand.Next(left, right + 1);
+            int pivot = arr[randomIndex];
+            Swap(arr, randomIndex, right);
+
+            int i = left - 1;
+            int j = right;
+            while (true)
+            {
+                do i++; while (arr[i] < pivot);
+                do j--; while (j > 0 && arr[j] > pivot);
+
+                if (i >= j)
+                {
+                    Swap(arr, i, right);
+                    return i;
+                }
+                Swap(arr, i, j);
+            }
+        }
+
+        private static void Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
 
 
     }
