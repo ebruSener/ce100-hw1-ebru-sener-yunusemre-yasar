@@ -130,6 +130,43 @@ namespace ce100_hw1_algo_lib
             arr[j] = temp;
         }
 
+        public static void QuickSort2(int[] arr, int left, int right)
+        {
+            if (left < right)
+            {
+                int pivotIndex = LomutoPartition(arr, left, right);
+                QuickSort2(arr, left, pivotIndex - 1);
+                QuickSort2(arr, pivotIndex + 1, right);
+            }
+        }
+
+        private static int LomutoPartition(int[] arr, int left, int right)
+        {
+            int pivot = arr[right];
+            int i = left;
+
+            for (int j = left; j < right; j++)
+            {
+                if (arr[j] < pivot)
+                {
+                    if (i != j)
+                    {
+                        int temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                    i++;
+                }
+            }
+
+            if (i != right)
+            {
+                arr[right] = arr[i];
+                arr[i] = pivot;
+            }
+
+            return i;
+        }
 
     }
 }
