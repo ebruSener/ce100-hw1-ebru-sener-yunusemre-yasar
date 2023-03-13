@@ -168,5 +168,80 @@ namespace ce100_hw1_algo_lib
             return i;
         }
 
+        public static int BinarySearchIterative(int[] inputArray, int key)
+        {
+            int l = 0, r = inputArray.Length - 1;
+            while (l <= r)
+            {
+                int m = l + (r - l) / 2;
+
+                // Check if x is present at mid
+                if (inputArray[m] == key)
+                    return m;
+
+                // If x greater, ignore left half
+                if (inputArray[m] < key)
+                    l = m + 1;
+
+                // If x is smaller, ignore right half
+                else
+                    r = m - 1;
+            }
+
+            // if we reach here, then element was
+            // not present
+
+            // Returns index of x if it is present in
+            // arr[l..r], else return -1
+            return -1;
+        }
+
+
+        /**
+        *
+        *	  @name   BinarySearchRecursive (Binary Search Recursive)
+        *
+        *	  @brief Binary Search Recursive
+        *
+        *	  Binary Search Recursive
+        *
+        *	  @param  [in] inputArray [\b int]  inputArray
+        *	  
+        *	  @param  [in] key [\b int]  key
+        *	  
+        *	  @param  [in] min [\b int]  min
+        *	  
+        *	  @param  [in] max [\b int]  max
+        *	  
+        *	  
+        **/
+
+        public static int BinarySearchRecursive(int[] inputArray, int key, int min, int max)
+        {
+            int mid = key + (min - key) / 2;
+
+            // find the mid-value in the search space and
+            // compares it with the target
+
+            // Base condition (target value is found)
+            if (max == inputArray[mid])
+            {
+                return mid;
+            }
+
+            // discard all elements in the right search space,
+            // including the middle element
+            else if (max < inputArray[mid])
+            {
+                return BinarySearchRecursive(inputArray, key, mid - 1, max);
+            }
+
+            // discard all elements in the left search space,
+            // including the middle element
+            else
+            {
+                return BinarySearchRecursive(inputArray, mid + 1, min, max);
+            }
+        }
     }
 }
