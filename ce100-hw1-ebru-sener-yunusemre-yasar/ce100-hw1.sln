@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ce100-hw1-algo-lib", "ce100-hw1-algo-lib\ce100-hw1-algo-lib.csproj", "{D18D2391-2EAB-4E14-BA97-8F12FE5953DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ce100-hw1-algo-test", "ce100-hw1-algo-test\ce100-hw1-algo-test.csproj", "{DC5DFCAB-CF67-4846-BA71-C50B0D70F9C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D18D2391-2EAB-4E14-BA97-8F12FE5953DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D18D2391-2EAB-4E14-BA97-8F12FE5953DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D18D2391-2EAB-4E14-BA97-8F12FE5953DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC5DFCAB-CF67-4846-BA71-C50B0D70F9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC5DFCAB-CF67-4846-BA71-C50B0D70F9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC5DFCAB-CF67-4846-BA71-C50B0D70F9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC5DFCAB-CF67-4846-BA71-C50B0D70F9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
