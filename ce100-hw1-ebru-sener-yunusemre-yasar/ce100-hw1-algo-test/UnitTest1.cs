@@ -989,63 +989,60 @@ namespace ce100_hw1_algo_test
     }
 
 
-[TestClass]
-    public class RecursiveBinarySearchTests
-    {
-        [TestMethod]
-        public void Search_ReturnsIndex_ForAverageCase()
+        [TestClass]
+        public class RecursiveBinarySearchTests6
         {
-            // Arrange
-            int[] array = GenerateRandomArray(10000);
-            Array.Sort(array);
-            int target = array[7500];
+            [TestMethod]
+            public void Search_ReturnsCorrectIndex_ForAverageCase()
+            {
+                // Arrange
+                int[] array = GenerateAverageCaseArray(10000);
+                int target = array[5000];
 
-            // Act
-            int actualIndex = RecursiveBinarySearch(array, target, 0, array.Length - 1);
+                // Act
+                int actualIndex = RecursiveBinarySearch(array, target, 0, array.Length - 1);
 
-            // Assert
-            Assert.AreEqual(7500, actualIndex);
+                // Assert
+                Assert.AreEqual(5000, actualIndex);
+            }
+
+            private int[] GenerateAverageCaseArray(int size)
+            {
+                int[] array = new int[size];
+                for (int i = 0; i < size; i++)
+                {
+                    array[i] = i * 2;
+                }
+                return array;
+            }
+
+            private int RecursiveBinarySearch(int[] array, int target, int low, int high)
+            {
+                if (low > high)
+                {
+                    return -1;
+                }
+
+                int mid = (low + high) / 2;
+
+                if (array[mid] == target)
+                {
+                    return mid;
+                }
+                else if (array[mid] > target)
+                {
+                    return RecursiveBinarySearch(array, target, low, mid - 1);
+                }
+                else
+                {
+                    return RecursiveBinarySearch(array, target, mid + 1, high);
+                }
+            }
         }
 
-        private int[] GenerateRandomArray(int size)
-        {
-            int[] array = new int[size];
-            Random random = new Random();
-
-            for (int i = 0; i < size; i++)
-            {
-                array[i] = random.Next(0, 10000);
-            }
-
-            return array;
-        }
-
-        private int RecursiveBinarySearch(int[] array, int target, int low, int high)
-        {
-            if (low > high)
-            {
-                return -1;
-            }
-
-            int mid = (low + high) / 2;
-
-            if (array[mid] == target)
-            {
-                return mid;
-            }
-            else if (array[mid] > target)
-            {
-                return RecursiveBinarySearch(array, target, low, mid - 1);
-            }
-            else
-            {
-                return RecursiveBinarySearch(array, target, mid + 1, high);
-            }
-        }
-    }
 
 
-[TestClass]
+        [TestClass]
     public class RecursiveBinarySearchTests2
     {
         [TestMethod]
@@ -1097,60 +1094,61 @@ namespace ce100_hw1_algo_test
     }
 
 
-[TestClass]
-    public class RecursiveBinarySearchTests3
-    {
-        [TestMethod]
-        public void Search_ReturnsNegativeOne_ForBadCase()
+        [TestClass]
+        public class RecursiveBinarySearchTests5
         {
-            // Arrange
-            int[] array = GenerateBadCaseArray(10000);
-            int target = array[array.Length - 1];
+            [TestMethod]
+            public void Search_ReturnsNegativeOne_ForBadCase()
+            {
+                // Arrange
+                int[] array = GenerateBadCaseArray(10000);
+                int target = 10001;
 
-            // Act
-            int actualIndex = RecursiveBinarySearch(array, target, 0, array.Length - 1);
+                // Act
+                int actualIndex = RecursiveBinarySearch(array, target, 0, array.Length - 1);
 
-            // Assert
-            Assert.AreEqual(-1, actualIndex);
+                // Assert
+                Assert.AreEqual(-1, actualIndex);
+            }
+
+            private int[] GenerateBadCaseArray(int size)
+            {
+                int[] array = new int[size];
+                for (int i = 0; i < size; i++)
+                {
+                    array[i] = i;
+                }
+                return array;
+            }
+
+            private int RecursiveBinarySearch(int[] array, int target, int low, int high)
+            {
+                if (low > high)
+                {
+                    return -1;
+                }
+
+                int mid = (low + high) / 2;
+
+                if (array[mid] == target)
+                {
+                    return mid;
+                }
+                else if (array[mid] > target)
+                {
+                    return RecursiveBinarySearch(array, target, low, mid - 1);
+                }
+                else
+                {
+                    return RecursiveBinarySearch(array, target, mid + 1, high);
+                }
+            }
         }
 
-        private int[] GenerateBadCaseArray(int size)
-        {
-            int[] array = new int[size];
-            for (int i = 0; i < size; i++)
-            {
-                array[i] = i * 2;
-            }
-            return array;
-        }
-
-        private int RecursiveBinarySearch(int[] array, int target, int low, int high)
-        {
-            if (low > high)
-            {
-                return -1;
-            }
-
-            int mid = (low + high) / 2;
-
-            if (array[mid] == target)
-            {
-                return mid;
-            }
-            else if (array[mid] > target)
-            {
-                return RecursiveBinarySearch(array, target, low, mid - 1);
-            }
-            else
-            {
-                return RecursiveBinarySearch(array, target, mid + 1, high);
-            }
-        }
-    }
 
 
 
-    public class MasterTheoremTests
+        public class MasterTheoremTests
     {
         
         public void TestCase1()
