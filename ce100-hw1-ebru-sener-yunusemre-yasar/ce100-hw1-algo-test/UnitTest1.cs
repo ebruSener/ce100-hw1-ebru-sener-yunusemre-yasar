@@ -1290,7 +1290,7 @@ namespace ce100_hw1_algo_test
                                 { 30,30,30,30},
                                 { 40,40,40,40} };
             Class1.enableDebug(true);
-            Class1.multiply(A, B, C);
+            Class1.iterativematrixMultiplication(A, B, C);
             Class1.enableDebug(false);
             CollectionAssert.AreEqual(expected, C);
         }
@@ -1319,7 +1319,7 @@ namespace ce100_hw1_algo_test
                                 { 34,44,54,64 },
                                 { 82,108,134,160} };
             Class1.enableDebug(true);
-            Class1.multiply(A, B, C);
+            Class1.iterativematrixMultiplication(A, B, C);
             Class1.enableDebug(false);
             CollectionAssert.AreEqual(expected, C);
         }
@@ -1348,7 +1348,7 @@ namespace ce100_hw1_algo_test
                                 { 1049,1119,1189,1259 },
                                 { 1285,1371,1457,1543} };
             Class1.enableDebug(true);
-            Class1.multiply(A, B, C);
+            Class1.iterativematrixMultiplication(A, B, C);
             Class1.enableDebug(false);
             CollectionAssert.AreEqual(expected, C);
         }
