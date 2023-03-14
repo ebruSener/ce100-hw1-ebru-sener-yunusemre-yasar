@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using static ce100_hw1_algo_lib.Class1;
 
 namespace ce100_hw1_algo_test
 {
@@ -1144,6 +1145,43 @@ namespace ce100_hw1_algo_test
             {
                 return RecursiveBinarySearch(array, target, mid + 1, high);
             }
+        }
+    }
+
+
+
+    public class MasterTheoremTests
+    {
+        
+        public void TestCase1()
+        {
+            int[] f = new int[] { 1, 2, 3, 4, 5 };
+            string complexity = MasterTheorem.GetTimeComplexity(2, 2, f);
+            Assert.AreEqual("O(n^1.9999)", complexity);
+        }
+
+        
+        public void TestCase2()
+        {
+            int[] f = new int[] { 1, 2, 4, 8, 16 };
+            string complexity = MasterTheorem.GetTimeComplexity(2, 2, f);
+            Assert.AreEqual("O(n^2 * log(n))", complexity);
+        }
+
+        
+        public void TestCase3()
+        {
+            int[] f = new int[] { 16, 8, 4, 2, 1 };
+            string complexity = MasterTheorem.GetTimeComplexity(2, 2, f);
+            Assert.AreEqual("O(1)", complexity);
+        }
+
+        
+        public void TestUnknownCase()
+        {
+            int[] f = new int[] { 1, 2, 3, 4 };
+            string complexity = MasterTheorem.GetTimeComplexity(3, 2, f);
+            Assert.AreEqual("Unknown time complexity", complexity);
         }
     }
 
