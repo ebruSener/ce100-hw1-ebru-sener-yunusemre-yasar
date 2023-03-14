@@ -10,17 +10,30 @@ namespace ce100_hw1_algo_lib
     {
         public static int[] SelectionSort(int[] A, int n)
         {
+            // This method takes an integer array A and its length n as inputs.
+
+
             int tmp;
             int min;
 
             for (int i = 0; i < n - 1; i++)
+
+            // This outer loop iterates over each element of the array A.
             {
                 min = i;
 
+                // Set the minimum value to the current index i.
+
                 for (int j = i; j < n; j++)
                 {
+                    // This inner loop iterates over the remaining elements of the array A.
+
+
                     if (A[j] < A[min])
                     {
+                        // If the value at index j is less than the minimum value so far,
+                        // update the index of the minimum value to j.
+
                         min = j;
                     }
                 }
@@ -29,6 +42,11 @@ namespace ce100_hw1_algo_lib
                 A[i] = A[min];
                 A[min] = tmp;
             }
+            // Swap the current element (at index i) with the minimum element
+            // (at index min), effectively moving the minimum value to the front
+            // of the remaining unsorted elements.
+
+
 
             return A;
         }
