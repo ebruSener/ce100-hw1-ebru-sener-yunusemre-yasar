@@ -1197,6 +1197,10 @@ namespace ce100_hw1_algo_test
             Assert.AreEqual("Unknown time complexity", complexity);
         }
 
+
+        // matrix's tests
+
+
         [TestMethod]
         public void multiplyMatrixRecTestMethod1()
         {
@@ -1261,6 +1265,9 @@ namespace ce100_hw1_algo_test
             Class1.enableDebug(false);
             CollectionAssert.AreEqual(expected, C);
         }
+
+
+
         [TestMethod]
         public void multiplyMatrixIterativeTestMethod1()
         {
@@ -1345,6 +1352,11 @@ namespace ce100_hw1_algo_test
             Class1.enableDebug(false);
             CollectionAssert.AreEqual(expected, C);
         }
+
+
+
+
+
 
         [TestMethod]
         public void MatrixMulStrTest2()

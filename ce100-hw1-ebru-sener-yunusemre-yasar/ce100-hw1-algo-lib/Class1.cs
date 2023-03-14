@@ -377,8 +377,9 @@ public static class MasterTheorem
             multiplyMatrixRec(row1, col1, A,
                               row2, col2, B, C);
         }
-        static int N = 4;
-        public static void multiply(int[,] mat1,
+
+        static int N = 10;
+        public static void iterativematrixMultiplication(int[,] mat1,
                          int[,] mat2, int[,] res)
         {
             int i, j, k;
@@ -393,6 +394,26 @@ public static class MasterTheorem
                 }
             }
         }
+
+
+        // iterative matrix
+        /*   static int N = 4;
+           public static void multiply(int[,] mat1,
+                            int[,] mat2, int[,] res)
+           {
+               int i, j, k;
+               for (i = 0; i < N; i++)
+               {
+                   for (j = 0; j < N; j++)
+                   {
+                       res[i, j] = 0;
+                       for (k = 0; k < N; k++)
+                           res[i, j] += mat1[i, k]
+                                        * mat2[k, j];
+                   }
+               }
+           } */
+
         static void calculate(int n)
         {
             Random rng = new Random();
